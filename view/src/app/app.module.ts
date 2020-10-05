@@ -14,6 +14,8 @@ import { MonthlyPqrChartComponent } from './monthly-pqr-chart/monthly-pqr-chart.
 import { NeighborhoodPqrChartComponent } from './neighborhood-pqr-chart/neighborhood-pqr-chart.component';
 import { MostIssuePqrChartComponent } from './most-issue-pqr-chart/most-issue-pqr-chart.component';
 import { NeighborPqrBarChartComponent } from './neighbor-pqr-bar-chart/neighbor-pqr-bar-chart.component';
+import { AngularFireModule } from "angularfire2";
+import { environment } from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -33,7 +35,7 @@ import { NeighborPqrBarChartComponent } from './neighbor-pqr-bar-chart/neighbor-
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule, AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
