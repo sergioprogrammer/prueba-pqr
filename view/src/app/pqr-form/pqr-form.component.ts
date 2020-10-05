@@ -187,6 +187,7 @@ export class PqrFormComponent implements OnInit {
     let currentFormDate = this.pqrForm.controls.date_picked.value;
     let solutionDate;
     console.log(currentFormDate);
+    console.log(moment(currentFormDate).day());
       if (moment(currentFormDate).day() === 0){
         currentFormDate = moment().add(1, 'days').set('hour', 6).set('minute', 0).set('second',0).format('YYYY-MM-DD HH:mm:ss');
         solutionDate = moment().add(4, 'days').set('hour', 6).set('minute', 0).set('second',0).format('YYYY-MM-DD HH:mm:ss');

@@ -13,7 +13,9 @@ import { CurrentMonthIssues } from "./interfaces/current-month-issues";
   providedIn: 'root',
 })
 export class PqrService {
-  apiUrl: string = 'http://127.0.0.1:8000/';
+  //apiUrl: string = 'http://127.0.0.1:8000/';
+  apiUrl: string = 'https://gtikusfc.lucusvirtual.es/';
+
   constructor(private http: HttpClient) {}
   /**
    * Lista de infraestructuras
