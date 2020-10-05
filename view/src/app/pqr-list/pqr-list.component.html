@@ -1,0 +1,48 @@
+<div id="contPag" class="animate__animated animate__fadeIn">
+  <div class="row-sides">
+    <div id="left-column" class="col-sm-3 col-12 pl-sm-0 pr-sm-0">
+      <!-- <table id="tableReportes" class="table table-hover mt-5">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Creada</th>
+            <th class="" scope="col">Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pqr of pqrReports let indice = index">
+            <td scope="row">{{indice+1}}</td>
+            <td>{{pqr.address}}</td>
+            <td>{{pqr.created_at | date}}</td>
+            <td class="text-center"><i #idEl class="fa fa-eye" style="cursor:pointer; color: #7289DA;" data-toggle="modal" data-target="#exampleModal" [attr.data-pqrId]="pqr.id" (click)="detallesPqr(idEl)"></i></td>
+          </tr>
+        </tbody>
+      </table> -->
+      <div *ngFor="let pqr of pqrReports" title="Click para mas detalles" #idEl style="cursor:pointer;"
+        data-toggle="modal" data-target="#exampleModal" [attr.data-pqrId]="pqr.id" (click)="detallesPqr(idEl)"
+        class="card border-0 mt-3 ml-lg-4 mr-lg-4 animate__animated animate__bounceInDown"
+        style=" height: auto; border-radius: 7px; cursor: pointer;">
+        <div class="card-body fluid p-0" style="max-width: 100%; height: auto;">
+          <div class="row ml-1">
+
+            <div class="col-9 mt-3">
+              <h5 class="card-title" style="font-size: 14px;">{{pqr.address}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted" style="font-size: 14px;">Fecha: {{pqr.date_picked | date}}</h6>
+              <p class="card-text" style="font-size: 14px;">{{pqr.name}} {{pqr.last_name}}</p>
+              <!-- <a #idEl style="cursor:pointer;" class="card-link" data-toggle="modal" data-target="#exampleModal" [attr.data-pqrId]="pqr.id" (click)="detallesPqr(idEl)">Detalles</a> -->
+            </div>
+            <div id="img-bg" class="col-3 rounded-right img-fluid">
+              <!-- <img src="../../assets/images/pqr-sample.png" class="img-fluid rounded-right" alt="Responsive image"> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-9 h100 w100 pr-sm-0 pl-sm-0 col-12">
+      <div id="mapboxApp2">
+      </div>
+    </div>
+  </div>
+</div>
+<app-pqr-modal [modalPqr]="pqrSelected"></app-pqr-modal>

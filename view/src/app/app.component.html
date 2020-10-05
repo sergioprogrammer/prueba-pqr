@@ -1,0 +1,47 @@
+<div class="wrapper">
+  <!-- Sidebar de BS -->
+  <nav id="sidebar">
+    <div id="dismiss">
+      <i class="fa fa-arrow-left"></i>
+    </div>
+    <div class="sidebar-header">
+      <h3>PQR Reports</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+      <p>Sistema de Control</p>
+      <li class="">
+        <a [routerLink]="['home']" class="linkSideBar"><i class="fa fa-home" aria-hidden="true" style="font-size:26px;"></i> Home</a>
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-flag" aria-hidden="true" style="font-size:24px;"></i> Reportes</a>
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+          <li>
+            <a [routerLink]="['pqr-form']" class="linkSideBar">Reportar daño</a>
+          </li>
+          <li>
+            <a [routerLink]="['pqr-list']" class="linkSideBar">Lista de reportes</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div id="content">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="btn btn-secondary" style="background-color:#7992ea; border-color: #7992ea;">
+          <i class="fa fa-align-left"></i>
+          <span> Mostrar Sidebar</span>
+        </button>
+      </div>
+    </nav>
+    <!-- Contenido -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="overlay"></div>
+
+</div>

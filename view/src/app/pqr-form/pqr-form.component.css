@@ -1,0 +1,56 @@
+#contForm{
+  margin: 0px 300px 0px 300px !important;
+}
+
+#mapboxApp{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+textarea{
+  resize: none;
+}
+
+@media (max-width: 1199px) {
+  #mapboxApp{
+    width: 100%;
+    height: 300px;
+  }
+  #contForm{
+    margin: 0px !important;
+  }
+
+}
+
+@media (max-width: 1611px) {
+  #contForm{
+    margin: 0px !important;
+  }
+}
+
+#cardBox{
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.form-control{
+  border-color: #c2c2c2;
+  background-color: #e9ebee;
+  border-top:none;
+  border-left:none;
+  border-right:none;
+}
+.form-control.is-invalid, .was-validated .form-control:invalid {
+  border-color: #dc3545 !important;
+}
+.form-control.is-valid, .was-validated .form-control:valid {
+  border-color: #28a745 !important;
+}
+.form-control.is-warned, .was-validated .form-control:invalid{
+  border-color:#c39300 !important;
+}
+.mapboxgl-map{
+border-radius: 0.25em !important;
+}
+

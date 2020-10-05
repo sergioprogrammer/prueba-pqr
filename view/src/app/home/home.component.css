@@ -1,0 +1,11 @@
+#contPag{
+  margin: 0px 0px 0px 0px !important;
+  max-height: 100%;
+}
+.row-sides{
+  display: flex;
+    flex: 1 0 100%;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}

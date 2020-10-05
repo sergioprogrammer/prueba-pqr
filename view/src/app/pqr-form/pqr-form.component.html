@@ -1,0 +1,263 @@
+    <div id="contForm" class="animate__animated animate__fadeIn pt-4">
+      <form [formGroup]="pqrForm">
+        <div class="row">
+          <div class="col-xl-6 col-12">
+            <label for="main_stSelect"
+              [ngClass]="{'text-danger':(pqrForm.get('main_st').invalid && (pqrForm.get('main_st').dirty || pqrForm.get('main_st').touched))}">Dirección</label>
+            <div class="row d-flex justify-content-center">
+              <div class="col-xl-4 col-12">
+                <div class="form-group">
+                  <select id="main_stSelect" class="form-control" formControlName="main_st" required
+                    [ngClass]="{'is-invalid':(pqrForm.get('main_st').invalid && (pqrForm.get('main_st').dirty || pqrForm.get('main_st').touched)), 'is-valid':(pqrForm.get('main_st').valid && (pqrForm.get('main_st').dirty || pqrForm.get('main_st').touched))}">
+                    <option value disabled selected>Vía principal</option>
+                    <option value="Calle">Calle</option>
+                    <option value="Carrera">Carrera</option>
+                    <option value="Diagonal">Diagonal</option>
+                    <option value="Avenida">Avenida</option>
+                    <option value="Transversal">Transversal</option>
+                  </select>
+                  <div
+                    *ngIf="pqrForm.get('main_st').invalid && (pqrForm.get('main_st').dirty || pqrForm.get('main_st').touched)">
+                    <small *ngIf="pqrForm.get('main_st').errors.required" class="text-danger">Debe seleccionar una
+                      vía</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-4">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="first_stForm" formControlName="first_st"
+                    [ngClass]="{'is-invalid':(pqrForm.get('first_st').invalid && (pqrForm.get('first_st').dirty || pqrForm.get('first_st').touched)), 'is-valid':(pqrForm.get('first_st').valid && (pqrForm.get('first_st').dirty || pqrForm.get('first_st').touched))}"
+                    required placeholder="66b">
+                  <div
+                    *ngIf="pqrForm.get('first_st').invalid && (pqrForm.get('first_st').dirty || pqrForm.get('first_st').touched)">
+                    <small *ngIf="pqrForm.get('first_st').errors.required" class="text-danger">Requerido</small>
+                  </div>
+                </div>
+              </div>
+              #
+              <div class="col-xl-2 col-4">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="second_stForm" formControlName="second_st"
+                    [ngClass]="{'is-invalid':(pqrForm.get('second_st').invalid && (pqrForm.get('second_st').dirty || pqrForm.get('second_st').touched)), 'is-valid':(pqrForm.get('second_st').valid && (pqrForm.get('second_st').dirty || pqrForm.get('second_st').touched))}"
+                    required placeholder="40">
+                  <div
+                    *ngIf="pqrForm.get('second_st').invalid && (pqrForm.get('second_st').dirty || pqrForm.get('second_st').touched)">
+                    <small *ngIf="pqrForm.get('second_st').errors.required" class="text-danger">Requerido</small>
+                  </div>
+                </div>
+              </div>
+              -
+              <div class="col-xl-2 col-3">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="st_numForm" formControlName="st_num"
+                    [ngClass]="{'is-invalid':(pqrForm.get('st_num').invalid && (pqrForm.get('st_num').dirty || pqrForm.get('st_num').touched)), 'is-valid':(pqrForm.get('st_num').valid && (pqrForm.get('st_num').dirty || pqrForm.get('st_num').touched))}"
+                    required (focusout)="focusOutService()" placeholder="102">
+                  <div
+                    *ngIf="pqrForm.get('st_num').invalid && (pqrForm.get('st_num').dirty || pqrForm.get('st_num').touched)">
+                    <small *ngIf="pqrForm.get('st_num').errors.required" class="text-danger">Requerido</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-6 col-12">
+                <div class="form-group">
+                  <label for="nameForm"
+                    [ngClass]="{'text-danger':(pqrForm.get('name').invalid && (pqrForm.get('name').dirty || pqrForm.get('name').touched))}">Nombre</label>
+                  <input type="text" class="form-control" id="nameForm" placeholder="Entre su nombre"
+                    formControlName="name"
+                    [ngClass]="{'is-invalid':(pqrForm.get('name').invalid && (pqrForm.get('name').dirty || pqrForm.get('name').touched)), 'is-valid':(pqrForm.get('name').valid && (pqrForm.get('name').dirty || pqrForm.get('name').touched || pqrForm.get('name').untouched))}"
+                    required>
+                  <div
+                    *ngIf="pqrForm.get('name').invalid && (pqrForm.get('name').dirty || pqrForm.get('name').touched)">
+                    <small *ngIf="pqrForm.get('name').errors.required" class="text-danger">Debe ingresar un
+                      nombre</small>
+                    <small *ngIf="pqrForm.get('name').errors.minlength" class="text-danger">El nombre debe tener minimo
+                      2
+                      Caracteres</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-12">
+                <div class="form-group">
+                  <label for="lastNameForm"
+                    [ngClass]="{'text-danger':(pqrForm.get('lastname').invalid && (pqrForm.get('lastname').dirty || pqrForm.get('lastname').touched))}">Apellido</label>
+                  <input type="text" class="form-control" id="lastNameForm" placeholder="Entre su apellido"
+                    formControlName="lastname"
+                    [ngClass]="{'is-invalid':(pqrForm.get('lastname').invalid && (pqrForm.get('lastname').dirty || pqrForm.get('lastname').touched)), 'is-valid':(pqrForm.get('lastname').valid && (pqrForm.get('lastname').dirty || pqrForm.get('lastname').touched || pqrForm.get('lastname').untouched))}"
+                    required>
+                  <div
+                    *ngIf="pqrForm.get('lastname').invalid && (pqrForm.get('lastname').dirty || pqrForm.get('lastname').touched)">
+                    <small *ngIf="pqrForm.get('lastname').errors.required" class="text-danger">Debe ingresar un
+                      Apellido</small>
+                    <small *ngIf="pqrForm.get('lastname').errors.minlength" class="text-danger">El apellido debe tener
+                      minimo
+                      2
+                      Caracteres</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-6 col-12">
+                <div class="form-group">
+                  <label for="infrastructureSelect"
+                    [ngClass]="{'text-danger':(pqrForm.get('infrastructure').invalid && (pqrForm.get('infrastructure').dirty || pqrForm.get('infrastructure').touched))}">Infraestructura</label>
+                  <select id="infrastructureSelect" class="form-control" formControlName="infrastructure" required
+                    [ngClass]="{'is-invalid':(pqrForm.get('infrastructure').invalid && (pqrForm.get('infrastructure').dirty || pqrForm.get('infrastructure').touched)), 'is-valid':(pqrForm.get('infrastructure').valid && (pqrForm.get('infrastructure').dirty || pqrForm.get('infrastructure').touched || pqrForm.get('infrastructure').untouched))}">
+                    <option value disabled selected>Seleccione una infraestuctura</option>
+                    <option *ngFor="let inf of infrastructures" [value]="inf.id">{{inf.inf_name}}
+                    </option>
+                  </select>
+                  <div
+                    *ngIf="pqrForm.get('infrastructure').invalid && (pqrForm.get('infrastructure').dirty || pqrForm.get('infrastructure').touched)">
+                    <small *ngIf="pqrForm.get('infrastructure').errors.required" class="text-danger">Debe Seleccionar
+                      una
+                      Infraestructura</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-12">
+                <div class="form-group">
+                  <label for="infCodeForm">Codigo
+                    de Infraestructura</label>
+                  <input type="text" class="form-control" id="infCodeForm" placeholder="Escriba el codigo"
+                    formControlName="code">
+                  <div *ngIf="pqrForm.get('infrastructure').value == 2">
+                    <small class="" style="color:#c39300;">Es posible omitir este campo</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-6 col-12">
+                <div class="form-group">
+                  <label for="neighborhoodSelect"
+                    [ngClass]="{'text-danger':(pqrForm.get('neighborhood').invalid && (pqrForm.get('neighborhood').dirty || pqrForm.get('neighborhood').touched))}">Barrio</label>
+                  <select id="neighborhoodSelect" class="form-control" formControlName="neighborhood" required
+                    [ngClass]="{'is-invalid':(pqrForm.get('neighborhood').invalid && (pqrForm.get('neighborhood').dirty || pqrForm.get('neighborhood').touched)), 'is-valid':(pqrForm.get('neighborhood').valid && (pqrForm.get('neighborhood').dirty || pqrForm.get('neighborhood').touched || pqrForm.get('neighborhood').untouched))}">
+                    <option value disabled selected>Seleccione un barrio</option>
+                    <option *ngFor="let bar of neighborhoods" [value]="bar.id">{{bar.ne_name}}
+                    </option>
+                  </select>
+                  <div
+                    *ngIf="pqrForm.get('neighborhood').invalid && (pqrForm.get('neighborhood').dirty || pqrForm.get('neighborhood').touched)">
+                    <small *ngIf="pqrForm.get('neighborhood').errors.required" class="text-danger">Debe Seleccionar un
+                      Barrio</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-12">
+                <div class="form-group">
+                  <label for="fechaForm"
+                    [ngClass]="{'text-danger':(pqrForm.get('date_picked').invalid && (pqrForm.get('date_picked').dirty || pqrForm.get('date_picked').touched))}">Fecha
+                    de reporte</label>
+                  <input type="datetime-local" class="form-control" id="fechaForm" placeholder=""
+                    formControlName="date_picked"
+                    [ngClass]="{'is-invalid':(pqrForm.get('date_picked').invalid && (pqrForm.get('date_picked').dirty || pqrForm.get('date_picked').touched)), 'is-valid':(pqrForm.get('date_picked').valid && (pqrForm.get('date_picked').dirty || pqrForm.get('date_picked').touched || pqrForm.get('date_picked').untouched))}"
+                    required>
+                  <div
+                    *ngIf="pqrForm.get('date_picked').invalid && (pqrForm.get('date_picked').dirty || pqrForm.get('date_picked').touched)">
+                    <small *ngIf="pqrForm.get('date_picked').errors.required" class="text-danger">Debe ingresar la fecha
+                      actual</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-6 col-12">
+                <div class="form-group">
+                  <label for="phoneForm"
+                    [ngClass]="{'text-danger':(pqrForm.get('phone_num').invalid && (pqrForm.get('phone_num').dirty || pqrForm.get('phone_num').touched))}">Telefono</label>
+                  <input type="text" class="form-control" id="phoneForm" placeholder="Entre un numero telefono"
+                    formControlName="phone_num"
+                    [ngClass]="{'is-invalid':(pqrForm.get('phone_num').invalid && (pqrForm.get('phone_num').dirty || pqrForm.get('phone_num').touched)), 'is-valid':(pqrForm.get('phone_num').valid && (pqrForm.get('phone_num').dirty || pqrForm.get('phone_num').touched || pqrForm.get('phone_num').untouched))}"
+                    required>
+                  <div
+                    *ngIf="pqrForm.get('phone_num').invalid && (pqrForm.get('phone_num').dirty || pqrForm.get('phone_num').touched)">
+                    <small *ngIf="pqrForm.get('phone_num').errors.required" class="text-danger">Debe ingresar un num. de
+                      telefono</small>
+                    <small *ngIf="pqrForm.get('phone_num').errors.minlength" class="text-danger">El telefono debe ser
+                      minimo
+                      de 7 digitos</small>
+                    <small *ngIf="pqrForm.get('phone_num').errors.maxlength" class="text-danger">El telefono debe ser
+                      maximo
+                      de 10 digitos</small>
+                    <small *ngIf="pqrForm.get('phone_num').errors.pattern" class="text-danger">~ Solo numeros</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-12">
+                <div class="form-group">
+                  <label for="knownReportSelect"
+                    [ngClass]="{'text-danger':(pqrForm.get('known_report').invalid && (pqrForm.get('known_report').dirty || pqrForm.get('known_report').touched))}">Tipo
+                    de problema</label>
+                  <select id="knownReportSelect" class="form-control" formControlName="known_report" required
+                    [ngClass]="{'is-invalid':(pqrForm.get('known_report').invalid && (pqrForm.get('known_report').dirty || pqrForm.get('known_report').touched)), 'is-valid':(pqrForm.get('known_report').valid && (pqrForm.get('known_report').dirty || pqrForm.get('known_report').touched || pqrForm.get('known_report').untouched))}">
+                    <option value disabled selected>Seleccione el problema</option>
+                    <option *ngFor="let pro of knownreports" [value]="pro.id">{{pro.issue}}
+                    </option>
+                  </select>
+                  <div
+                    *ngIf="pqrForm.get('known_report').invalid && (pqrForm.get('known_report').dirty || pqrForm.get('known_report').touched)">
+                    <small *ngIf="pqrForm.get('known_report').errors.required" class="text-danger">Debe Seleccionar un
+                      problema</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="descForm">Detalles del reporte</label>
+                  <textarea class="form-control" id="descForm" rows="6"
+                    placeholder="Escriba aqui información adicional del problema" formControlName="desc"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <label for="lngForm"
+                  [ngClass]="{'text-danger':(pqrForm.get('lng').invalid && (pqrForm.get('lng').dirty || pqrForm.get('lng').touched))}">Coordenadas</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="lngForm" placeholder="Longitud" formControlName="lng"
+                    [ngClass]="{'is-warned':(pqrForm.get('lng').invalid && (pqrForm.get('lng').pristine)),'is-valid':(pqrForm.get('lng').valid && (pqrForm.get('lng').pristine || pqrForm.get('lng').untouched))}"
+                    required [attr.disabled]="true">
+                  <div *ngIf="pqrForm.get('lng').invalid && (pqrForm.get('lng').pristine)">
+                    <small *ngIf="pqrForm.get('lng').errors.required" style="color:#c39300;">Seleccione ubicación en el
+                      mapa</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="latForm" placeholder="Latitud" formControlName="lat"
+                    [ngClass]="{'is-warned':(pqrForm.get('lat').invalid && (pqrForm.get('lat').pristine)), 'is-valid':(pqrForm.get('lat').valid && (pqrForm.get('lat').pristine || pqrForm.get('lat').untouched))}"
+                    required [attr.disabled]="true">
+                  <div *ngIf="pqrForm.get('lat').invalid && (pqrForm.get('lat').pristine)">
+                    <small *ngIf="pqrForm.get('lat').errors.required" style="color:#c39300;">Seleccione ubicación en el
+                      mapa</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- COLUMNA 2 DE LA PAGINA -->
+          <div class="col-xl-6 col-12">
+            <div id="mapboxApp">
+            </div>
+            <!--  AQUI VA EL MAPA  -->
+          </div>
+        </div>
+        <div class="row mt-3 justify-content-center">
+          <div class="col-sm-4 col-12">
+            <button [disabled]="pqrForm.invalid" class="btn btn-success btn-block" type="submit" (click)="OnSubmit()"><i
+                class="fa fa-paper-plane"></i> Agregar PQR</button>
+          </div>
+        </div>
+      </form>
+    </div>
